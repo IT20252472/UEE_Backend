@@ -9,6 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const EndangeredSpecies = require("./Routes/EndangeredSpecies.route");
+app.use("/api/EndangeredSpecies", EndangeredSpecies);
+
 const port = process.env.PORT || 6000;
 
 mongoose.connect(process.env.DB_CONNECT, (err) => {
