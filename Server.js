@@ -15,6 +15,9 @@ app.use("/api/EndangeredSpecies", EndangeredSpecies);
 const ArticleRoute = require("./Routes/Article.route");
 app.use("/api/Articles", ArticleRoute);
 
+const AdminRoute = require("./Routes/Admin.route");
+app.use("/api/Admins", AdminRoute);
+
 const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.DB_CONNECT, (err) => {
