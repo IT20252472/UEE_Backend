@@ -18,11 +18,7 @@ exports.createAdmin = async (req, res) => {
 exports.getAllAdmins = async (req, res) => {
   try {
     const admins = await Admin.find();
-    if (admins) {
-      res.status(200).send({ message: "success!", data: admins });
-    } else {
-      res.status(400).send({ message: "failed!", data: admins });
-    }
+    res.json(admins);
   } catch (e) {
     console.log("Error in Get All Admins", e);
     res.status(500).send({ message: "server error", data: e });
@@ -32,11 +28,7 @@ exports.getAllAdmins = async (req, res) => {
 exports.getAdminByID = async (req, res) => {
   try {
     const admin = await Admin.findById(req.params.id);
-    if (admin) {
-      res.status(200).send({ message: "success!", data: admin });
-    } else {
-      res.status(400).send({ message: "failed!", data: admin });
-    }
+    res.json(admin);
   } catch (e) {
     console.log("Error in Get Admin By Id", e);
     res.status(500).send({ message: "server error", data: e });
