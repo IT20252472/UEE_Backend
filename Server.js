@@ -18,9 +18,12 @@ app.use("/api/Articles", ArticleRoute);
 const AdminRoute = require("./Routes/Admin.route");
 app.use("/api/Admins", AdminRoute);
 
+const ResourceRoute = require("./Routes/Resources.route");
+app.use("/api/Resources", ResourceRoute);
+
 const port = process.env.PORT || 4000;
 
-mongoose.connect(process.env.DB_CONNECT, (err) => {
+mongoose.connect(process.env.DB_CONNECT, err => {
   if (err) {
     console.log("mongo connection error ", err);
   } else {
@@ -28,7 +31,7 @@ mongoose.connect(process.env.DB_CONNECT, (err) => {
   }
 });
 
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (!err) {
     console.log(`Server is up and running on port: ${port}`);
   } else {

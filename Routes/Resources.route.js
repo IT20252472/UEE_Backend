@@ -1,14 +1,20 @@
 const router = require("express").Router();
-const Resources = require("../controllers/Resources.contoller");
+const {
+  addResources,
+  deleteResources,
+  getAllResources,
+  getResources,
+  updateResources
+} = require("../Controllers/Resources.controller");
 
-router.post("/", Resources.addResources);
+router.post("/", addResources);
 
-router.get("/:id", Resources.getResources);
+router.get("/:id", getResources);
 
-//router.get("/", Resources.getAllResources);
+router.get("/", getAllResources);
 
-//router.put("/:id", Resources.updateResources);
+router.put("/:id", updateResources);
 
-//router.delete("/:id", Resources.deleteResources);
+router.delete("/:id", deleteResources);
 
 module.exports = router;

@@ -2,8 +2,8 @@ const Resources = require("../Models/Resources");
 
 exports.addResources = async (req, res) => {
   try {
-    const Resources = new Resources(req.body);
-    const savedResources = await Resources.save();
+    const resources = new Resources(req.body);
+    const savedResources = await resources.save();
     if (savedResources) {
       res.status(201).send({ message: "success!", data: savedResources });
     } else {
@@ -17,8 +17,8 @@ exports.addResources = async (req, res) => {
 
 exports.getResources = async (req, res) => {
   try {
-    const Resources = await Resources.findById(req.params.id);
-    res.json(Resources);
+    const resources = await Resources.findById(req.params.id);
+    res.json(resources);
   } catch (e) {
     console.log("error", e);
     res.status(500).send({ message: "error", data: e });
@@ -27,8 +27,8 @@ exports.getResources = async (req, res) => {
 
 exports.getAllResources = async (req, res) => {
   try {
-    const Resources = await Resources.find({});
-    res.json(Resources);
+    const resources = await Resources.find({});
+    res.json(resources);
   } catch (e) {
     console.log("error", e);
     res.status(500).send({ message: "error", data: e });

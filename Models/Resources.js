@@ -5,7 +5,7 @@ const resources = new mongoose.Schema({
     type: String,
     required: true
   },
-  imageURL: {
+  img: {
     type: String,
     required: true
   },
