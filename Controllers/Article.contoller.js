@@ -72,3 +72,19 @@ exports.updateArticle = async (req,res) => {
         res.status(500).send({ message: "server error", data: e });
     }
 }
+
+exports.updateArticleStatus = async (req, res) => {
+    try {
+        const result = await Article.updateOne(
+            { _id: req.params.id },
+            {
+                status: req.body.status,
+            }
+        );
+        console.log("updated ", result);
+        res.status(200).send({ message: "success", data: result });
+    } catch (e) {
+        console.log("error", e);
+        res.status(500).send({ message: "error", data: e });
+    }
+}
