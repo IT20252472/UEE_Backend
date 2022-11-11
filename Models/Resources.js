@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const resources = new mongoose.Schema({
-  authorName: {
+  title: {
     type: String,
     required: true
   },
@@ -16,6 +16,10 @@ const resources = new mongoose.Schema({
   addedBy: {
     type: String,
     required: true
+  },
+  date:{
+    type:Date,
+    default: Date.now
   }
 });
 
